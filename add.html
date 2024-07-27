@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+<html>
+<body>
+
+<div id="name_entry_container" class="green-background">
+    <div class="title-medium"> Add a New Novel </div>
+    <div id = "successMessage" class = "bold"></div>
+    <div id = "viewItemLink" class="bottom-padding"></div>
+    
+    <div class = "row bottom-padding"> 
+        <div class = "col-5">
+            <div class="input-title">Title: </div> <input id="title" placeholder="Title" class="form_format">
+            <div id="titleWarning" class="warning"></div>
+        </div>
+        <div class = "col-5">
+            <div class="input-title">Author: </div> <input id="author" placeholder="Author" class="form_format">
+            <div id="authorWarning" class="warning"></div>
+        </div>
+        <div class = "col-2">
+            <div class="input-title">Rating: </div> <input id="score" placeholder="Rating" class="form_format">
+            <div id="scoreWarning" class="warning"></div>
+        </div>
+    </div>
+
+    <div class = "padding-10"></div>
+
+    <div class="input-title">Image: (Link) </div> <input id="image" placeholder="Image" class="form_format">
+    <div id="imageWarning" class="warning"></div>
+
+    <div class="input-title">Summary: </div> <input id="summary" placeholder="Summary" class="form_format bottom-padding">
+    <div id="summaryWarning" class="warning"></div>
+
+    <div class = "padding-10"></div>
+
+
+    <div class="input-title">Genres: <span class = "gray-light">(Separated by commas ',') </span></div> <input id="genres" placeholder="Genres" class="form_format">
+    <div id="genresWarning" class="warning"></div>
+
+    <div class="input-title">Series: <span class = "gray-light">(Separated by commas ',')</span></div> <input id="series" placeholder="Series" class="form_format">
+    <div id="seriesWarning" class="warning"></div>
+    <div class ="padding">
+    <button id="submit_book">Submit</button></div>
+    
+</div>
+</body>
+</html>
+
+{% endblock %}

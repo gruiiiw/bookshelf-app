@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+
+<div class="padding-10">
+
+    <body>
+        <div class = "padding-left bottom-padding">
+            <div class = "title-medium">Showing Results for " <span class = "orange font-large"> {{ search_term }} </span>"</div>
+                <div class = "font-medium bottom-padding">
+                    {% if items %}
+                        {{ items|length }} result(s) found:
+                    </div>
+        </div>
+
+                {% for item in items %}  
+                    <a href="/view/{{ item.id }}" class = "small-searchitem row no-underline">
+                        <div class="item search-main col-3" data-id="{{ item.id }}">{{ item.title|replace(search_term, '<span class="highlight">' + search_term + '</span>')|safe }}</div>
+                        <div class = "col-9">
+                            <div class = "search-small gray-dark">
+                                {% for series in item.series %}
+                                {{ series|replace(search_term, '<span class="highlight">' + search_term + '</span>')|safe }} {% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <div class = "search-small gray-dark">
+                                {% for genres in item.genres %}
+                                {{ genres|replace(search_term, '<span class="highlight">' + search_term + '</span>')|safe }} {% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </a>
+                
+                    {% endfor %}
+
+        {% else %}
+            <div class="small-title">
+                No results found</div>
+        {% endif %} 
+        
+        <br>
+    </body>
+</div>
+
+{% endblock %}

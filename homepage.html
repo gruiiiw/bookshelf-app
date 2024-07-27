@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'people.js') }}"></script>
+
+
+    <div class = "row">
+        <div class = "col-6">
+            <div id="searchResultsContainer"></div>
+        </div>
+        <div class = "col-6">
+            <div id="searchResultsContainer2"></div>
+        </div>
+
+        <div class = "col-6">
+            <div id="searchResultsContainer3"></div>
+        </div>
+
+        <div class = "col-6">
+            <div id="searchResultsContainer4"></div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
